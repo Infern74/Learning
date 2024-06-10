@@ -2,24 +2,35 @@ public class ClassesAndObjects {
     public static void main(String[] args) {
         Person person1;
         person1 = new Person();
-        person1.setNameAndAge("John", 18);
+        person1.setName("Антон");
+        person1.setAge(-10);
         int year1 = person1.calculateBirthday();
-        person1.speak();
-        System.out.println("Год рождения " + year1);
+        System.out.println(person1.getAge());
 
-        Person person2;
-        person2 = new Person();
-        person2.setNameAndAge("Jane", 20);
     }
 }
 
 class Person {
-    String name;
-    int age;
+    private String name;
+    private int age;
 
-    void setNameAndAge(String username, int userage) {
-        name = username;
-        age = userage;
+    public void setName(String userName) {
+        if (userName.isEmpty()){
+            System.out.println("Введено пустое имя");
+        } else{
+            name = userName;
+        }
+    }
+    public void setAge(int userAge) {
+        if (userAge < 0){
+            System.out.println("Возраст должен быть положительным");
+        } else{
+            age = userAge;
+        }
+    }
+
+    public int getAge() {
+        return age;
     }
 
     int calculateBirthday() {
